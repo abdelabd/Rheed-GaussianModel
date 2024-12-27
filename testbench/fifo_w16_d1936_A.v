@@ -5,12 +5,12 @@
 
 `timescale 1ns/1ps
 
-module fifo_w16_d400_A
+module fifo_w16_d1936_A
 #(parameter
     MEM_STYLE   = "block",
     DATA_WIDTH  = 16,
-    ADDR_WIDTH  = 9,
-    DEPTH       = 400
+    ADDR_WIDTH  = 11,
+    DEPTH       = 1936
 )
 (
     // system signal
