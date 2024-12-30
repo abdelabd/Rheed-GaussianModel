@@ -6003,33 +6003,6 @@ module myproject_testbench();
 	wire [15:0] layer11_out_V_data_4_V_TDATA; //output
 	wire layer11_out_V_data_4_V_TVALID; // output: myproject output valid to be sent
    reg layer11_out_V_data_4_V_TREADY; //input: receiver ready to receive myproject output
-	
-//	module myproject (
-//        crop_layer_input_V_data_0_V_TDATA,
-//        layer11_out_V_data_0_V_TDATA,
-//        layer11_out_V_data_1_V_TDATA,
-//        layer11_out_V_data_2_V_TDATA,
-//        layer11_out_V_data_3_V_TDATA,
-//        layer11_out_V_data_4_V_TDATA,
-//        ap_clk,
-//        ap_rst_n,
-//        crop_layer_input_V_data_0_V_TVALID,
-//        crop_layer_input_V_data_0_V_TREADY,
-//        ap_start,
-//        layer11_out_V_data_0_V_TVALID,
-//        layer11_out_V_data_0_V_TREADY,
-//        layer11_out_V_data_1_V_TVALID,
-//        layer11_out_V_data_1_V_TREADY,
-//        layer11_out_V_data_2_V_TVALID,
-//        layer11_out_V_data_2_V_TREADY,
-//        layer11_out_V_data_3_V_TVALID,
-//        layer11_out_V_data_3_V_TREADY,
-//        layer11_out_V_data_4_V_TVALID,
-//        layer11_out_V_data_4_V_TREADY,
-//        ap_done,
-//        ap_ready,
-//        ap_idle
-//);
 
 	// Instantiate the HLS module (Replace 'hls_module' with actual module name)
 	myproject dut (
