@@ -6090,19 +6090,19 @@ module myproject_testbench();
 		end
 	end
 	
-	// randomize the input-valid signal
-	always_ff @(posedge ap_clk) begin
-		crop_layer_input_V_data_0_V_TVALID <= $urandom%2;
-	end
-
-	// randomize the output-ready signal
-	always_ff @(posedge ap_clk) begin
-		layer11_out_V_data_0_V_TREADY <= $urandom%2;
-		layer11_out_V_data_1_V_TREADY <= $urandom%2;
-		layer11_out_V_data_2_V_TREADY <= $urandom%2;
-		layer11_out_V_data_3_V_TREADY <= $urandom%2;
-		layer11_out_V_data_4_V_TREADY <= $urandom%2;
-	end
+//	// randomize the input-valid signal
+//	always_ff @(posedge ap_clk) begin
+//		crop_layer_input_V_data_0_V_TVALID <= $urandom%2;
+//	end
+//
+//	// randomize the output-ready signal
+//	always_ff @(posedge ap_clk) begin
+//		layer11_out_V_data_0_V_TREADY <= $urandom%2;
+//		layer11_out_V_data_1_V_TREADY <= $urandom%2;
+//		layer11_out_V_data_2_V_TREADY <= $urandom%2;
+//		layer11_out_V_data_3_V_TREADY <= $urandom%2;
+//		layer11_out_V_data_4_V_TREADY <= $urandom%2;
+//	end
 	
 	// Run through the signal protocol to read in the data
 	initial begin
@@ -6112,18 +6112,22 @@ module myproject_testbench();
 		ap_start = 0;
 		
 		// Turn on input-valid, output-ready 
-//		input_1_V_data_0_V_TVALID = 1;
-//		layer2_out_V_data_0_V_TREADY = 1;
+		crop_layer_input_V_data_0_V_TVALID = 1;
+		layer11_out_V_data_0_V_TREADY = 1;
+		layer11_out_V_data_1_V_TREADY = 1;
+		layer11_out_V_data_2_V_TREADY = 1;
+		layer11_out_V_data_3_V_TREADY = 1;
+		layer11_out_V_data_4_V_TREADY = 1;
 
 		 // Turn off reset
 		 #20;
 		 ap_rst_n = 1;
 
 		 // Load image data from binary file
-		 $readmemb("tb_data/tb_image_100x160_1crops_48x48_ap_fixed_16_2.bin", image_data); // Load from binary file
+		 $readmemb("tb_data/tb_image_1crops_100x160_48x48_ap_fixed_16_2.bin", image_data); // Load from binary file
 		
 		 // Open the files to which we want to write
-		 input_read_file = $fopen("tb_data/tb_image_READ_IN_100x160_1crops_48x48_ap_fixed_16_2.bin", "wb");
+		 input_read_file = $fopen("tb_data/tb_image_READ_IN_1crops_100x160_48x48_ap_fixed_16_2.bin", "wb");
 		 if (input_read_file == 0) begin
 			  $display("Error: Could not open input-read file for writing.");
 			  $stop;
@@ -6132,7 +6136,7 @@ module myproject_testbench();
 			  $display("Could indeed open input-read file for writing.");
 		 end
 		 
-		 cropped_images_file = $fopen("tb_data/OUTPUT_100x160_1crops_48x48_ap_fixed_16_2.bin", "wb");
+		 cropped_images_file = $fopen("tb_data/OUTPUT_1crops_100x160_48x48_ap_fixed_16_2.bin", "wb");
 		 if (cropped_images_file == 0) begin
 			  $display("Error: Could not open output file for writing.");
 			  $stop;
@@ -6155,7 +6159,7 @@ module myproject_testbench();
 //
 //		 // End simulation
 //		 #20;
-		 #100000;
+		 #1000000;
 		 $stop;
 	end
 
