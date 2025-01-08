@@ -9937,19 +9937,19 @@ module myproject_testbench();
 		end
 	end
 	
-//	// randomize the input-valid signal
-//	always_ff @(posedge ap_clk) begin
-//		crop_layer_input_V_data_0_V_TVALID <= $urandom%2;
-//	end
-//
-//	// randomize the output-ready signal
-//	always_ff @(posedge ap_clk) begin
-//		layer11_out_V_data_0_V_TREADY <= $urandom%2;
-//		layer11_out_V_data_1_V_TREADY <= $urandom%2;
-//		layer11_out_V_data_2_V_TREADY <= $urandom%2;
-//		layer11_out_V_data_3_V_TREADY <= $urandom%2;
-//		layer11_out_V_data_4_V_TREADY <= $urandom%2;
-//	end
+	// randomize the input-valid signal
+	always_ff @(posedge ap_clk) begin
+		crop_layer_input_V_data_0_V_TVALID <= $urandom%2;
+	end
+
+	// randomize the output-ready signal
+	always_ff @(posedge ap_clk) begin
+		layer16_out_V_data_0_V_TREADY <= $urandom%2;
+		layer16_out_V_data_1_V_TREADY <= $urandom%2;
+		layer16_out_V_data_2_V_TREADY <= $urandom%2;
+		layer16_out_V_data_3_V_TREADY <= $urandom%2;
+		layer16_out_V_data_4_V_TREADY <= $urandom%2;
+	end
 	
 	// Run through the signal protocol to read in the data
 	initial begin
@@ -9959,12 +9959,12 @@ module myproject_testbench();
 		ap_start = 0;
 		
 		// Turn on input-valid, output-ready 
-		crop_layer_input_V_data_0_V_TVALID = 1;
-		layer16_out_V_data_0_V_TREADY = 1;
-		layer16_out_V_data_1_V_TREADY = 1;
-		layer16_out_V_data_2_V_TREADY = 1;
-		layer16_out_V_data_3_V_TREADY = 1;
-		layer16_out_V_data_4_V_TREADY = 1;
+//		crop_layer_input_V_data_0_V_TVALID = 1;
+//		layer16_out_V_data_0_V_TREADY = 1;
+//		layer16_out_V_data_1_V_TREADY = 1;
+//		layer16_out_V_data_2_V_TREADY = 1;
+//		layer16_out_V_data_3_V_TREADY = 1;
+//		layer16_out_V_data_4_V_TREADY = 1;
 
 		 // Turn off reset
 		 #20;
